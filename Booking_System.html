@@ -1,60 +1,93 @@
-// ----------------------------
-// KONFIGURASI
-// ----------------------------
-// GANTIKAN DENGAN URL APPS SCRIPT BARU ANDA DARI LANGKAH 2
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzwFVVo-f_Um9i2b8OyWJ8QPjV-Hx9TLM4vt9ulGMmCrflbYYz32oj6Olb8QkkdWSsc/exec";
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Asset Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-// ----------------------------
-// FUNGSI UTAMA
-// ----------------------------
-document.addEventListener('DOMContentLoaded', ( ) => {
-  const bookingForm = document.getElementById('booking-form');
-  const messageEl = document.getElementById('booking-message');
-  const submitBtn = bookingForm.querySelector('.submit-btn');
+<body class="bg-gray-900">
+    <div id="app-container" class="relative min-h-screen flex items-center p-4">
+        <div class="section-center w-full max-w-7xl mx-auto">
+            <div class="booking-form mx-auto">
+                <div class="form-header text-center mb-8">
+                    <h1 class="text-5xl font-extrabold text-yellow-500 uppercase tracking-wider">
+                        DRONE ASSET MONITORING
+                    </h1>
+                    <p class="text-gray-400 mt-2 text-sm">
+                        Sistem Pinjaman dan Pengembalian Drone
+                    </p>
+                </div>
 
-  // Fungsi untuk memaparkan mesej
-  function setMessage(msg, isError = false) {
-    messageEl.textContent = msg;
-    messageEl.className = `mt-3 text-center text-sm font-bold ${isError ? 'text-red-400' : 'text-green-400'}`;
-  }
+                <!-- BORANG PINJAMAN -->
+                <form id="booking-form">
+                    <div class="form-row">
+                        <!-- Kiri -->
+                        <div class="form-column">
+                            <div class="form-group">
+                                <span class="form-label">Nama Peminjam</span>
+                                <input class="form-control" type="text" name="NamaPeminjam" placeholder="Masukkan Nama Anda" required>
+                            </div>
+                            <div class="form-group">
+                                <span class="form-label">Site Anda</span>
+                                <select class="form-control" name="LokasiKerja" required>
+                                    <option value="" disabled selected>Pilih Lokasi Anda</option>
+                                    <option>HQ</option>
+                                    <option>ROM - MELAKA</option>
+                                    <option>RONJ - JOHOR</option>
+                                    <option>ROMNS - NEGERI SEMBILAN</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <span class="form-label">Model Drone (Pilih ID )</span>
+                                <select class="form-control" name="DroneID" required>
+                                    <option value="" disabled selected> SN / Pilih Model Drone</option>
+                                    <option value="SN-001">(SN-001) DJI Matrice 4T</option>
+                                    <option value="SN-002">(SN-002) DJI Phantom 4 Pro</option>
+                                </select>
+                            </div>
+                        </div>
 
-  // Apabila borang dihantar...
-  bookingForm.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Halang borang dari refresh halaman
+                        <!-- Kanan -->
+                        <div class="form-column">
+                            <div class="form-group">
+                                <span class="form-label">Tujuan Misi</span>
+                                <input class="form-control" type="text" name="TujuanMisi" placeholder="Cth: Pemeriksaan Gutter" required>
+                            </div>
+                            <div class="form-group">
+                                <span class="form-label">Destinasi Penerbangan</span>
+                                <input class="form-control" type="text" name="Destinasi" placeholder="Cth: Hospital Tuanku Jaafar" required>
+                            </div>
+                            <div class="form-group flex gap-3">
+                                <div class="w-1/2">
+                                    <span class="form-label">Tarikh Keluar</span>
+                                    <input class="form-control" type="date" name="TarikhKeluar" required>
+                                </div>
+                                <div class="w-1/2">
+                                    <span class="form-label">Masa Keluar</span>
+                                    <input class="form-control" type="time" name="MasaKeluar" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    // Tukar teks butang dan paparkan mesej menunggu
-    submitBtn.textContent = 'Menghantar...';
-    submitBtn.disabled = true;
-    setMessage('Sila tunggu, menghantar data ke Google Sheet...');
+                    <!-- Butang -->
+                    <div class="form-btn mt-6">
+                        <button class="submit-btn" type="submit">
+                            HANTAR REKOD PINJAMAN KE GOOGLE SHEET
+                        </button>
+                    </div>
 
-    // Dapatkan semua data dari borang
-    const formData = new FormData(bookingForm);
-    const data = Object.fromEntries(formData.entries());
+                    <!-- Mesej Status -->
+                    <div id="booking-message" class="mt-3 text-center text-sm font-bold"></div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-    try {
-      // Hantar data ke Apps Script
-      const response = await fetch(APPS_SCRIPT_URL, {
-        method: 'doPOST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-
-      const result = await response.json();
-
-      // Semak hasil yang diterima dari Apps Script
-      if (result.status === 'success') {
-        setMessage('✅ ' + result.message); // Papar mesej kejayaan
-        bookingForm.reset(); // Kosongkan borang
-      } else {
-        throw new Error(result.message); // Jika gagal, baling ralat
-      }
-    } catch (err) {
-      // Tangkap sebarang ralat (cth: 'Failed to fetch' atau ralat dari Apps Script)
-      setMessage(`❌ Ralat: ${err.message}`, true);
-    } finally {
-      // Kembalikan butang kepada keadaan asal
-      submitBtn.textContent = 'HANTAR REKOD PINJAMAN KE GOOGLE SHEET';
-      submitBtn.disabled = false;
-    }
-  });
-});
+    <!-- JavaScript luaran -->
+    <script src="script.js"></script>
+</body>
+</html>
