@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', ( ) => {
       const response = await fetch(APPS_SCRIPT_URL, {
         method: 'doPOST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
         redirect: 'follow'
       });
 
