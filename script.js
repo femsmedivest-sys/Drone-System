@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', ( ) => {
         method: 'doPOST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
+        redirect: 'follow'
       });
 
       const result = await response.json();
