@@ -9,7 +9,7 @@
     font-family: 'Inter', sans-serif;
     background-color: #1a1a1a54;
     background-image: linear-gradient(rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.42)),
-        url('//hqkl/medivest/users/muhammad.waliuddin/Desktop/File Medivest/FEMS EXECUTIVE WALIUDDIN/Projek Tableau/Data Tableau/booking system/drone 2.jpg');
+        url('drone 2.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -112,3 +112,4 @@
 @media (max-width: 900px) {
     .form-row { flex-direction: column; }
 }
+
