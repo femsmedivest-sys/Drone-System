@@ -2,7 +2,7 @@
 // KONFIGURASI
 // ----------------------------
 // GANTIKAN DENGAN URL APPS SCRIPT BARU ANDA DARI LANGKAH 2
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzwFVVo-f_Um9i2b8OyWJ8QPjV-Hx9TLM4vt9ulGMmCrflbYYz32oj6Olb8QkkdWSsc/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKcCLjAzV0SB4ZsJP-jsFeDqHlpqSDNxxZUgbGDgo2hx_LrVDBtOZaajPTc4XgHyh5/exec";
 
 // ----------------------------
 // FUNGSI UTAMA
@@ -58,3 +58,4 @@ document.addEventListener('DOMContentLoaded', ( ) => {
     }
   });
 });
+
