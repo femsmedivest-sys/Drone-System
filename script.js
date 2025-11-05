@@ -2,7 +2,7 @@
 // KONFIGURASI
 // ----------------------------
 // GANTIKAN DENGAN URL APPS SCRIPT BARU ANDA DARI LANGKAH 2
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz5jcBtjIOe5AmuoIlwJbnwcL8d7PrUmCCkfPOJUS9mflC-INMxhYVRJq0sRGfD8i_F/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyOE83QA62NVO82ANOqhMFShvEdo49n8h8DiWMG5V4raHLOpz12CnkCu_yYAQxcMreA/exec";
 
 // ----------------------------
 // FUNGSI UTAMA
