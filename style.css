@@ -7,15 +7,16 @@
 /* Latar belakang utama */
 #app-container {
     font-family: 'Inter', sans-serif;
-    background-color: #1a1a1a54;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.42)),
-        url('drone 2.jpg');
+    background-color: #ffffff00;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.144), rgba(0, 0, 0, 0.144)),
+        url('images/drone 2.webp');
     background-size: cover;
     background-position: center;
 }
 
 /* Kad & Borang */
-.booking-form, .dashboard-card {
+.booking-form,
+.dashboard-card {
     max-width: 900px;
     width: 100%;
     margin: auto;
@@ -39,13 +40,30 @@
 }
 
 /* Tabs */
-.tab-content { display: none; }
-.tab-content.active { display: block; }
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
 
 /* Form */
-.form-row { display: flex; gap: 20px; flex-wrap: wrap; }
-.form-column { flex: 1; min-width: 280px; }
-.form-group { margin-bottom: 20px; }
+.form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form-column {
+    flex: 1;
+    min-width: 280px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
 .form-label {
     color: #ccc;
     font-size: 13px;
@@ -54,6 +72,7 @@
     margin-bottom: 5px;
     display: block;
 }
+
 .form-control {
     background-color: #f5f5f5;
     border: none;
@@ -66,7 +85,8 @@
 }
 
 /* Butang */
-.submit-btn, .action-btn {
+.submit-btn,
+.action-btn {
     color: var(--dark-bg);
     background-color: var(--primary-color);
     font-weight: 800;
@@ -79,18 +99,26 @@
     transition: all 0.2s ease-in-out;
     box-shadow: 0 4px 10px rgba(255, 192, 1, 0.4);
 }
-.submit-btn:hover, .action-btn:hover {
+
+.submit-btn:hover,
+.action-btn:hover {
     transform: translateY(-1px);
     box-shadow: 0 6px 15px rgba(255, 192, 1, 0.6);
 }
 
 /* Kad Drone */
 .drone-card {
-    background-color: var(--dark-bg);
+    background-color: rgba(16, 17, 19, 0.35);
+    border-left: 5px solid var(--primary-color);
     border-radius: 8px;
     padding: 20px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    border-left: 5px solid var(--primary-color);
+    backdrop-filter: blur(6px);
+    line-height: 1.4;
+}
+
+.drone-card p {
+    margin-bottom: 8px;
+    /* ✅ jarak antara baris */
 }
 
 /* Lencana Status */
@@ -103,13 +131,81 @@
     text-transform: uppercase;
     color: white;
 }
-.status-pending { background-color: #f59e0b; }
-.status-pulang { background-color: #10b981; }
-.status-rosak { background-color: #ef4444; }
-.status-kosong { background-color: #4b5563; }
+
+#status-container {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 8px;
+    scrollbar-width: thin;
+}
+
+#status-container::-webkit-scrollbar {
+    width: 20px;
+}
+
+#status-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 192, 1, 0.6);
+    border-radius: 10px;
+}
+
+.label-badge {
+    display: inline-block;
+    background: rgba(1, 255, 170, 0.575);
+    border: 1px solid rgb(0, 0, 0);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-right: 8px;
+    text-transform: uppercase;
+}
+
+.nav-btn {
+    background: #1e1f2360;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 10px 20px;
+    color: #fff;
+    margin: 0 5px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.nav-btn:hover {
+    background: rgba(0, 0, 0, 0.301);
+    border-color: #ffc001;
+    color: #ffc001;
+}
+
+/* ✅ tab yang sedang aktif */
+.nav-btn.active {
+    background: #ffc001;
+    color: #000;
+    border-color: #ffc001;
+    box-shadow: 0 0 15px rgba(255, 192, 1, 0.4);
+}
+
+
+.status-pending {
+    background-color: #f59e0b;
+}
+
+.status-pulang {
+    background-color: #10b981;
+}
+
+.status-rosak {
+    background-color: #ef4444;
+}
+
+.status-kosong {
+    background-color: #4b5563;
+}
 
 /* Responsif */
 @media (max-width: 900px) {
-    .form-row { flex-direction: column; }
+    .form-row {
+        flex-direction: column;
+    }
 }
-
