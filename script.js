@@ -1,5 +1,5 @@
 // Gantikan dengan Web App URL anda (berakhir /exec)
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwathcfHpvNVHBOWVdM8qWRx3ltZyc9IH5rg9J6BLa_u2XIQ1zwCD7E7w0w8tAvmJHU/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwm1NMjzwSz1ignSF8sK7NU8QkksqWGXuEAIt_936zjICwaCxyTlBuqPfEO7o_9dFdF/exec";
 
 document.addEventListener('DOMContentLoaded', () => {
   // ... (Kod untuk booking form dan tab switch kekal sama) ...
@@ -99,11 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const statusClass = isReturned ? "status-pulang" : "status-pending";
         const statusDisplay = isReturned ? "Telah Dipulangkan" : "Sedang Digunakan";
 
-        // *** PEMBETULAN UNTUK TARIKH & MASA AMBIL ***
-        // Jika TarikhAmbil wujud, guna format biasa. Jika tidak, guna '-'
-        const tarikhMasaAmbil = item.TarikhAmbil && item.MasaAmbil
-          ? `${escapeHtml(item.TarikhAmbil)} , ${escapeHtml(item.MasaAmbil)}`
-          : '-';
+        // *** PEMBETULAN UNTUK TARIKH & MASA AMBIL (Menggunakan nilai yang diformat dari GAS) ***
+        // Guna TarikhMasaAmbil yang diformat oleh Apps Script.
+        const tarikhMasaAmbil = item.TarikhMasaAmbil || '-';
 
         // *** PEMBETULAN UNTUK TARIKH PULANG ***
         // Guna ReturnedAt yang diformat oleh Apps Script. Jika tiada, guna '-'
@@ -122,9 +120,11 @@ document.addEventListener('DOMContentLoaded', () => {
         card.innerHTML = `
             <div class="flex justify-between items-start">
               <div>
-                <h3 class="text-xl font-bold mb-2">${escapeHtml(item.NamaPeminjam || "-")}</h3>
                 <p class="text-gray-300 text-sm">
-                  <span class="label-badge">Site Peminjam:</span> ${escapeHtml(item.SitePeminjam || "-")} • 
+                  <span class="label-badge">Nama Peminjam:</span> ${escapeHtml(item.NamaPeminjam || "-")}
+                </p>
+                <p class="text-gray-300 text-sm">
+                  <span class="label-badge">Site Peminjam:</span> ${escapeHtml(item.SitePeminjam || "-")} •
                   <span class="label-badge">Model Drone:</span> ${escapeHtml(item.DroneModel || "-")} 
                 </p>
                 <p class="text-gray-300 text-sm mt-2">
