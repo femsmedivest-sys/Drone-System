@@ -1,5 +1,5 @@
 // Gantikan dengan Web App URL anda (berakhir /exec)
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwm1NMjzwSz1ignSF8sK7NU8QkksqWGXuEAIt_936zjICwaCxyTlBuqPfEO7o_9dFdF/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxmr6KxwyT99r5toQyzxnAQbWV7thUr_-jG6Iv7ci6t1stY_fIet0V-0PNqQpP8vxov/exec";
 
 document.addEventListener('DOMContentLoaded', () => {
   // ... (Kod untuk booking form dan tab switch kekal sama) ...
@@ -104,9 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const tarikhMasaAmbil = item.TarikhMasaAmbil || '-';
 
         // *** PEMBETULAN UNTUK TARIKH PULANG ***
-        // Guna ReturnedAt yang diformat oleh Apps Script. Jika tiada, guna '-'
+        // Pastikan ReturnedAt juga menggunakan kunci baru (seperti yang sedia ada)
         const returnedDateDisplay = item.ReturnedAt && item.ReturnedAt.length > 5 ? item.ReturnedAt : '-';
-
 
         const card = document.createElement('div');
         card.className = "drone-card";
