@@ -123,7 +123,9 @@ document.addEventListener('DOMContentLoaded', () => {
                   <span class="label-badge">Nama Peminjam:</span> ${escapeHtml(item.NamaPeminjam || "-")}
                 </p>
                 <p class="text-gray-300 text-sm">
-                  <span class="label-badge">Site Peminjam:</span> ${escapeHtml(item.SitePeminjam || "-")} •
+                  <span class="label-badge">Site Peminjam:</span> ${escapeHtml(item.SitePeminjam || "-")}
+                </p>
+                <p class="text-gray-300 text-sm">
                   <span class="label-badge">Model Drone:</span> ${escapeHtml(item.DroneModel || "-")} 
                 </p>
                 <p class="text-gray-300 text-sm mt-2">
