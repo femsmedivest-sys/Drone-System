@@ -209,3 +209,19 @@
         flex-direction: column;
     }
 }
+
+/* KOD BARU UNTUK MEMBETULKAN TARIKH/MASA BERCANTUM DI MOBILE */
+/* Sasarkan div yang mengandungi Tarikh Ambil dan Masa Ambil */
+.form-group.flex {
+    /* Benarkan flexbox untuk membungkus (wrap) */
+    flex-wrap: wrap; 
+}
+
+/* Sasarkan setiap kolum (w-1/2) di dalamnya */
+.form-group.flex > div {
+    /* Ubah lebar dari w-1/2 kepada 100% pada skrin kecil */
+    width: 100% !important; 
+    /* Tambah margin bawah untuk memisahkan Tarikh dan Masa */
+    margin-bottom: 10px; 
+}
+/* TAMAT KOD BARU */
