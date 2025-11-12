@@ -225,7 +225,10 @@
     margin-bottom: 10px; 
 }
 
-/* PENAMBAHAN KOD PANDUAN */
+/* =============================================================================
+// Gaya Floating Button
+// =============================================================================*/
+
 .floating-btn {
     position: fixed;
     bottom: 20px; /* Jarak dari bawah */
