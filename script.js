@@ -1,5 +1,5 @@
 // Gantikan dengan Web App URL anda (berakhir /exec)
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxmr6KxwyT99r5toQyzxnAQbWV7thUr_-jG6Iv7ci6t1stY_fIet0V-0PNqQpP8vxov/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQCwmpqSXql0mATko5C5VjOcmussE1XcwPK6pD7G5Anb2v53aN-Xfwuk8MFhSqBQE2/exec";
 
 document.addEventListener('DOMContentLoaded', () => {
   // ... (Kod untuk booking form dan tab switch kekal sama) ...
