@@ -232,7 +232,7 @@
 .floating-btn {
     position: fixed;
     bottom: 20px; /* Jarak dari bawah */
-    right: 20px;  /* Jarak dari kanan */
+    left: 20px;  /* Jarak dari kanan */
     z-index: 1000; /* Pastikan ia sentiasa di atas */
     display: flex;
     align-items: center;
