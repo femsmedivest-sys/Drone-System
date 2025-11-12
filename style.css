@@ -224,4 +224,41 @@
     /* Tambah margin bawah untuk memisahkan Tarikh dan Masa */
     margin-bottom: 10px; 
 }
-/* TAMAT KOD BARU */
+
+/* PENAMBAHAN KOD PANDUAN */
+.floating-btn {
+    position: fixed;
+    bottom: 20px; /* Jarak dari bawah */
+    right: 20px;  /* Jarak dari kanan */
+    z-index: 1000; /* Pastikan ia sentiasa di atas */
+    display: flex;
+    align-items: center;
+    background-color: #0d832d; /* Warna Hijau/Biru yang berbeza */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px; /* Bentuk pil/bujur */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.floating-btn:hover {
+    background-color: #0a6b24; /* Warna lebih gelap bila hover */
+    transform: translateY(-2px);
+}
+
+.floating-btn svg {
+    height: 24px;
+    width: 24px;
+}
+
+/* Responsif: Kecilkan dan buang teks pada skrin sangat kecil */
+@media (max-width: 600px) {
+    .floating-btn {
+        padding: 15px; /* Jadikan butang bulat */
+    }
+    .floating-btn span {
+        display: none !important; /* Sembunyikan teks pada mobile */
+    }
+}
